@@ -1,0 +1,17 @@
+<h2 class="sidebar-title">Popular Posts</h2>
+<div class="grid">
+    {% for post in posts %}
+        <div class="portfolio-item popular">
+            {% if post.photo %}
+                <a href="{{ post.get_absolute_url }}"><img src="{{ post.photo.url }}" alt="{{ post.title }}"></a>
+            {% else %}
+                <img src="http://4.bp.blogspot.com/-uy2sSHbqVQo/T0O4TTge_iI/AAAAAAAAABE/wT0_RVhOUj0/s1600/Jean-Claude-Van-Damme-5.jpg"
+                     alt="" width="300">
+            {% endif %}
+            <div class="portfolio-text">
+                <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                <p>By {{ post.author }} <span>|</span>{{ post.created_at|date:"j E Y" }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
